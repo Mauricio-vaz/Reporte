@@ -67,14 +67,13 @@
 
     let resultado = `${fechaUnidad}<br>*PROGRAMACIÓN PARA VIAJE DE POLLO GORDO*<br><br>`;
     resultado += `*UNIDADES*<br>`;
-    resultado += unidadLimpia.join(`Limpia✅<br>`) + ` Limpia✅<br>`;
-    resultado += `Unidades limpias: ${unidadLimpia.length}<br>`;
+    resultado += unidadLimpia.join(` Limpia✅<br>`) + ` Limpia✅<br>`;
+    resultado += `Unidades limpias: ${unidadLimpia.length}<br><br>`;
 
     unidadSucia.forEach(item => {
         resultado += `${item.unidad} Sucia❌ (${item.destino})<br>`;
     });
 
-    resultado += `<br>`;
     resultado += `Unidades Sucias: ${unidadSucia.length}`;
     document.getElementById('resultado').innerHTML = resultado;
 }
@@ -105,6 +104,7 @@
 </body>
 
 </html>
+
 
 
 
