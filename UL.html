@@ -65,9 +65,11 @@
             resultado += `*PLANAS*<br>`;
             resultado += planaLimpia.join(' Limpia✅<br>') + ` Limpia✅<br>`;
             resultado += planaSucia.join(' Sucia❌<br>') + ` Sucia❌<br><br>`;
+            resultado += `Planas Sucias: ${planaSucia.length}<br>`;
             resultado += `*UNIDADES*<br>`;
             resultado += unidadLimpia.join(' Limpia✅<br>') + ` Limpia✅<br>`;
             resultado += unidadSucia.join(' Sucia❌<br>') + ` Sucia❌<br><br>`;
+            resultado *= `Unidades sucias: ${unidadSucia.length}`;
 
             document.getElementById('resultado').innerHTML= resultado;
         }
@@ -94,4 +96,5 @@
 
     </script>
 </body>
+
 </html>
