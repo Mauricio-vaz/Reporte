@@ -69,7 +69,7 @@
             resultado += `*UNIDADES*<br>`;
             resultado += unidadLimpia.join(' Limpia✅<br>') + ` Limpia✅<br>`;
             resultado += unidadSucia.join(' Sucia❌<br>') + ` Sucia❌<br><br>`;
-            resultado *= `Unidades sucias: ${unidadSucia.length}`;
+            resultado += `Unidades sucias: ${unidadSucia.length}`;
 
             document.getElementById('resultado').innerHTML= resultado;
         }
@@ -98,3 +98,4 @@
 </body>
 
 </html>
+
