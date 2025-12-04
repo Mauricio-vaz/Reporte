@@ -144,7 +144,7 @@ function mostrarResultado() {
     resultado += `<br>*✅¡${numeroviaje} VIAJES EN TOTAL DE POLLO GORDO!🐔🚛*<br><br>`;
 
     if (unidadesPendientes.length > 0) {
-        resultado += `📝 Nota:<br>` + `<br>⏳ *UNIDADES PENDIENTES POR LIBERAR:*<br>`;
+        resultado +=`<br>⏳ *UNIDADES PENDIENTES POR LIBERAR:*<br>`;
         unidadesPendientes.forEach(pendiente => {
             if (pendiente.startsWith('0')) {
                 resultado += `VP-${pendiente.padStart(3, '0')}<br>`;
@@ -156,7 +156,7 @@ function mostrarResultado() {
 
 
     if (unidadesCanceladas.length > 0) {
-        resultado += `<br>❌ *FOLIOS CANCELADOS:*<br>`;
+        resultado += `📝 Nota:<br>` + `<br>❌ *FOLIOS CANCELADOS:*<br>`;
         unidadesCanceladas.forEach(cancelado => {
             const index = unidadesFolios.findIndex(item => item.unidadpro == cancelado);
             if (index !== -1){
@@ -220,4 +220,5 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
