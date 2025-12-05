@@ -147,9 +147,9 @@ function mostrarResultado() {
         resultado +=`<br>⏳ *UNIDADES PENDIENTES POR LIBERAR:*<br>`;
         unidadesPendientes.forEach(pendiente => {
             if (pendiente.startsWith('0')) {
-                resultado += `VP-${pendiente.padStart(3, '0')}<br>`;
+                resultado += `• VP-${pendiente.padStart(3, '0')}<br>`;
             } else {
-                resultado += `V-0${pendiente}<br>` 
+                resultado += `• V-0${pendiente}<br>` 
             }
         });
     }
@@ -160,10 +160,10 @@ function mostrarResultado() {
         unidadesCanceladas.forEach(cancelado => {
             const index = unidadesFolios.findIndex(item => item.unidadpro == cancelado);
             if (index !== -1){
-                resultado += `V-0${cancelado} Folio: ${unidadesFolios[index].foliopro}<br>`;
+                resultado += `• V-0${cancelado} Folio: ${unidadesFolios[index].foliopro}<br>`;
             }
             else{
-            resultado += `V-0${cancelado} Folio: No Encontrado<br>`;
+            resultado += `• V-0${cancelado} Folio: No Encontrado<br>`;
         }
         });
     }
@@ -173,10 +173,10 @@ function mostrarResultado() {
         unidadesTaller.forEach(taller =>{
             const index  = unidadesFolios.findIndex(item => item.unidadpro == taller);
             if (index !== -1){
-                resultado += `V-0${taller} Folio: ${unidadesFolios[index].foliopro}<br>`;
+                resultado += `• V-0${taller} Folio: ${unidadesFolios[index].foliopro}<br>`;
             }
             else{
-                resultado += `V-0${taller} Folio: No Encontrado<br>`;
+                resultado += `• V-0${taller} Folio: No Encontrado<br>`;
             }
             
         });
@@ -187,10 +187,10 @@ function mostrarResultado() {
         unidadesConbu.forEach(carga => {
             const index = unidadesFolios.findIndex(item => item.unidadpro == carga);
             if (index !== -1){
-                resultado += `V-0${carga} Folio:${unidadesFolios[index].foliopro}<br>`;
+                resultado += `• V-0${carga} Folio:${unidadesFolios[index].foliopro}<br>`;
             }
             else{
-                resultado += `V-0${carga} Folio: No Encontrado<br>`;
+                resultado += `• V-0${carga} Folio: No Encontrado<br>`;
             }
         });
     }
@@ -206,7 +206,7 @@ function copiar() {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    alert('Copiado al portapapeles');
+    alert('Copiado');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -220,5 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
 
 
