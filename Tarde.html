@@ -33,6 +33,7 @@
         let unidadesPendientes = [];
         let unidadesTaller = []; // Unidades que van al taller
         let unidadesConbu = [];
+        let longitudFolio = 0;
 
 function obtenerFechaActual() {
     const hoy = new Date();
@@ -52,13 +53,15 @@ function agregarViaje() {
         let tracto = "";
 
         if (folioActual === null) {
-            folioActual = parseInt(foliopro);
+            folioActual = parseInt(foliopro, 10);
+            longitudFolio = foliopro.length;
         }
 
         if (unidadpro.startsWith("0")) {
             tracto = prompt("Ingrese el número del tracto:").trim();
         }
 
+        const folioFormateado = folioActual.toString().padStart(longitudFolio, '0');
         unidadesFolios.push({ unidadpro, foliopro: folioActual.toString(), tracto });
         folioActual++;
 
