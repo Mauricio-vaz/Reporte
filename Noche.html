@@ -57,8 +57,9 @@ function agregarViaje() {
         if (unidadpro.startsWith("0")) {
             tracto = prompt("Ingrese el número del tracto:").trim();
         }
-
-        unidadesFolios.push({ unidadpro, foliopro: folioActual.toString(), tracto });
+        
+        const folioFormateado = folioActual.toString().padStart(6, '0');
+        unidadesFolios.push({ unidadpro, foliopro: folioFormateado, tracto });
         folioActual++;
 
         document.getElementById('unidadpro').value = "";
