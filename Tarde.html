@@ -62,7 +62,7 @@ function agregarViaje() {
         }
 
         const folioFormateado = folioActual.toString().padStart(longitudFolio, '0');
-        unidadesFolios.push({ unidadpro, foliopro: folioActual.toString(), tracto });
+        unidadesFolios.push({ unidadpro, foliopro: folioFormateado, tracto });
         folioActual++;
 
         document.getElementById('unidadpro').value = "";
