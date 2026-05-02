@@ -13,8 +13,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.contenedor li{    
-    width: auto;
+.contenedor li{
     display: inline-flex;
     text-align: center;
     flex-direction: column;
