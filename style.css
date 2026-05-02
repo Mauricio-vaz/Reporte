@@ -10,7 +10,7 @@ body{
 
 
 .contenedor li{    
-    width: 150px;
+    width: 100px;
     height: auto;
     display: inline-flex;
     text-align: center;
