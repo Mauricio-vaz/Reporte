@@ -1,7 +1,7 @@
 body{
     text-align: center;
     align-items: center;
-    font-family: 'Tahoma';
+    font-family: 'Verdana';
     background: #0b606b;
     text-decoration: none;
     color: black;
@@ -10,7 +10,7 @@ body{
 
 
 .contenedor li{    
-    width: 250px;
+    width: 150px;
     height: auto;
     display: inline-flex;
     text-align: center;
