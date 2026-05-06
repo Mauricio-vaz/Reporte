@@ -33,12 +33,13 @@ h5{
     align-items: center;
     flex-wrap: wrap;
     gap: 15px;
+    padding: 15px;
 }
 
 .contenedor li{    
     width: 140px;
-    display: inline-flex;
     margin: 10px;
+    display: inline-flex;
     justify-content: center;
     flex-direction: column;
     list-style: none;
@@ -46,12 +47,12 @@ h5{
 
 .contenedor .option a{ 
     display: block;
-    width: 100%;
-    padding: 10px;
-    height: 90px;
+    width: 130px;
+    padding: 5px;
+    height: 100px;
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.3);
-    color: #f6f3ff;
+    color: #f5f1ff;
     border-radius: 5px;
 }  
 
