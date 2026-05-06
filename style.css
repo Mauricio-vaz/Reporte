@@ -13,24 +13,30 @@ body{
     justify-content: center;
     align-items: center;
 }
-.contenedor li{
+
+.contenedor li{    
     display: inline-flex;
     text-align: center;
     flex-direction: column;
     list-style: none;
     text-decoration: none;
-    margin: 12px;
+    margin: 10px;
 }
 
 .contenedor .option a{  
     padding: 5px;
     text-decoration: none;
     background: transparent;
-    border: 2px solid #a01d99;
-    color: #16151d;
+    background-color: rgba(255, 255, 255, 0.3);
+    border: none;
+    color: #f6f3ff;
+    border-radius: 8px;
 }  
 
 .option:hover {
-    background: #ec97de;
+    background: #f5a6e8;
     color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
 }         
