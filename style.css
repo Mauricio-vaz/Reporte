@@ -19,10 +19,12 @@ body{
 .titu{
     text-align: left;
     font-size: 1.3rem;
+    color: #141718;
 }
 h5{
     font-size: .7rem;
     text-align: left;
+    color: #2f2e31;
 }
 
 .contenedor{
