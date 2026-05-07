@@ -10,6 +10,7 @@ body{
     text-decoration: none;
     color: black;
     font-size: 1.2rem;
+    
 }
 
 .wraper{
@@ -21,6 +22,10 @@ body{
     font-size: 1.3rem;
     color: #141718;
 }
+#seleccion{
+    margin: 0 5px;
+}
+
 h5{
     font-size: .7rem;
     text-align: left;
@@ -44,10 +49,25 @@ h5{
     flex-direction: column;
     list-style: none;
 }
+.contenedor img{
+    border-radius: 5px;
+    -webkit-mask-image: linear-gradient(
+        to bottom, 
+        rgba(0,0,0,1)0%,
+        rgba(0,0,0,0)100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0,0,0,1)20%,
+        rgba(0,0,0,0)100%
+    );
+}
 
-.contenedor .option a{ 
+.contenedor .option a{
+    position: relative;
     display: block;
-    width: 120px;
+    overflow: hidden;
+    width: 100%;
     padding: 5px;
     height: 100px;
     text-decoration: none;
@@ -55,7 +75,20 @@ h5{
     color: #f5f1ff;
     border-radius: 5px;
 }  
+.option img{
+    width: 100%;
+    height: 120%;
+    object-fit: cover;
+    display: block;
+}
 
+.option span{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+}
 .option:hover {
     background: #f5a6e8;
     color: white;
