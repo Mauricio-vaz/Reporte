@@ -1,5 +1,5 @@
         body {
-            font-family: 'Tahoma';
+            font-family: 'Courier New', Courier, monospace;
             padding: 20px;
             background: #428866;
             text-align: center;
@@ -9,11 +9,12 @@
             display: inline-block;
         }
         .titulo{
+            width: auto;
             text-transform: uppercase;
-            border-right: 10px solid;
+            border-right: 8px solid;
             white-space: nowrap;
             overflow: hidden;
-            animation: typing 1.5s steps(32), cursor .5s step-end infinite alternate; 
+            animation: typing 1.5s steps(28), cursor .5s step-end infinite; 
         }
         @keyframes cursor{
             50%{
@@ -22,7 +23,7 @@
         }
         @keyframes typing{
             from{
-                width: 0;
+                width: 5%;
             }
             to {
                 width: 100%;
@@ -38,7 +39,6 @@
         button {
             margin: 15px;
             background-color: cadetblue;
-            font-family: 'Franklin Gothic Regular';
             border: transparent;
             font-size: medium;
             padding: 10px 20px;
