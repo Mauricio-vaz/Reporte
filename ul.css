@@ -1,7 +1,7 @@
 body{
-    font-family: 'Tahoma';
+    font-family: 'Courier New', Courier, monospace;
     padding: 20px;
-    background: #0b606b;
+    background: #428866;
     text-align: center;
     
 }
@@ -16,8 +16,9 @@ input{
     
 }
 button{
+    font-family: 'Courier New', Courier, monospace;
     margin: 15px;
-    background-color: cadetblue;
+    background: rgb(127, 170, 110);
     border: transparent;
     font-size: medium;
     padding: 10px 20px;
