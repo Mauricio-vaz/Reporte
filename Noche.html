@@ -8,10 +8,11 @@
     
 </head>
 <body>
-    <h1>Registro De Unidades Para Procesado</h1>
-
+    <div class="wraper">
+    <h2 class="titulo">REPORTE DE UNIDADES PARA PROCESADO</h2>
+    </div>
     <div class="unidad-folio">
-        <label for="unidadpro">No. de Unidad:</label>
+        <label for="unidadpro">Número de unidad:</label>
         <input type="tel" id="unidadpro" inputmode="numeric" pattern="[0-9]*" required>
 
         <label for="foliopro">Folio:</label>
@@ -21,10 +22,10 @@
         <input type="text" id="notapro" style="display: none;" required>
     </div>
 
-    <button onclick="agregarViaje()">Agregar Folio</button>
-    <button onclick="copiar()">Copiar</button>
+    <button onclick="agregarViaje()">Agregar unidad</button>
+    <button onclick="copiar()">Copiar reporte</button>
 
-    <h2>Resultado</h2>
+    <h3>RESULTADO:</h3>
     <p id="resultado"></p>
     
     <script>
@@ -59,6 +60,7 @@ function agregarViaje() {
         if (unidadpro.startsWith("0")) {
             tracto = prompt("Ingrese el número del tracto:").trim();
         }
+        
         
         const folioFormateado = folioActual.toString().padStart(longitudFolio, '0');
         unidadesFolios.push({ unidadpro, foliopro: folioFormateado, tracto });
@@ -111,7 +113,7 @@ function mostrarResultado() {
 
     unidadesFolios.forEach(item => {
         if (!unidadesCanceladas.includes(item.unidadpro)) {
-            resultado += item.unidadpro.startsWith("0") ? `*• VP-${item.unidadpro.padStart(3, '0')}*
+            resultado += item.unidadpro.startsWith("0") ? `*• VP-${item.unidadpro.padStart(3, '0')}* 
             Tracto: *${item.tracto.toUpperCase()}* Folio: *${item.foliopro}*<br>` : `*• V-0${item.unidadpro}* 
             Folio: *${item.foliopro}*<br>`;
             //<input type="checkbox" class="resultado-checkbox" data-unidad="${item.unidadpro}" data-folio="${item.foliopro}"><br>`;
@@ -155,7 +157,7 @@ function copiar() {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    alert('Copiado al portapapeles');
+    alert('Copiado 👍');
 }
 
 document.addEventListener('DOMContentLoaded', () => {
