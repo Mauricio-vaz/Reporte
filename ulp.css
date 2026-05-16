@@ -17,7 +17,7 @@ input{
 }
 button{
     margin: 15px;
-    background-color: cadetblue;
+    background: rgb(127, 170, 110);
     border: transparent;
     font-size: medium;
     padding: 10px 20px;
