@@ -13,6 +13,37 @@
         background: #428866;
         font-family: Arial, sans-serif;
     }
+    
+input[type="checkbox"]{
+    appearance: none;
+    width: 35px;
+    height: 22px;
+    background: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+input[type="checkbox"]:checked {
+    background: #3bb355;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: translateX(13px);
+}
 
     body input{
         display: flex;
