@@ -75,7 +75,7 @@ align-items: center;
 .botones-tarde button{
     margin: 15px;
     padding: 10px;
-    rgb(127, 170, 110);
+    background: rgb(127, 170, 110);
     line-height: 10px;
     border-radius: 10px;
     border: none;
