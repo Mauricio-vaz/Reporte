@@ -36,6 +36,7 @@ button {
     border: none;
 }
 button{
+    font-family: 'Courier New', Courier, monospace;
     margin: 15px;
     background: rgb(127, 170, 110);
     color: rgb(34, 33, 33);
