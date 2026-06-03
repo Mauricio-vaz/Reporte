@@ -162,12 +162,25 @@ input[type="checkbox"]:checked::before {
         
 
         let resultado = opcion + '<br><br>'; 
-            resultado  += `*HORMIGA:*<br>`;
-            resultado += hormigaF.join('<br>')+ `<br><br>*RABÓN:*<br>`;
-            resultado += rabonF.join('<br>')+ `<br><br>*TORTÓN:*<br>`;
-            resultado += tortonF.join('<br>')+ `<br><br>*PLANAS:*<br>`;
-            resultado += planaF.join('<br>');
+            if (hormigaF.length > 0){
+                resultado +=  '*HORMIGA:*<br>';
+                resultado += hormigaF.join('<br>') + '<br><br>';
+            }
 
+            if (rabonF.length > 0){
+                resultado += '*RABÓN:* <br>';
+                resultado += rabonF.join('<br>') + '<br><br>';
+            }
+
+if (tortonF.length > 0){
+                resultado += '*TORTÓN:* <br>';
+                resultado += tortonF.join('<br>') + '<br><br>';
+            }
+if (planaF.length > 0){
+                resultado += '*PLANA:* <br>';
+                resultado += planaF.join('<br>') + '<br><br>';
+            }
+            
         document.getElementById('resultado').innerHTML = resultado;
 
     }
