@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="wraper">
-    <h2 class="titulo">REPORTE DE UNIDADES PARA PROCESADO</h2>
+    <h4 class="titulo">REPORTE DE UNIDADES PARA PROCESADO</h4>
     </div>
     <div class="unidad-folio">
         <label for="unidadpro">Número de unidad:</label>
@@ -20,6 +20,7 @@
 
         <label for="notapro" style="display: none;"></label>
         <input type="text" id="notapro" style="display: none;" required>
+        <div id="logro" class="logro"></div>
     </div>
 
     <button onclick="agregarViaje()">Agregar unidad</button>
@@ -77,6 +78,17 @@ function agregarViaje() {
             preguntarPendientes();
         }
     }
+}
+
+//ESTO SIRVE PARA MOSTRAR UN MENSAJE TOAST PARA QUE DESPUES SE MANDE A LLAMAR
+function mostrarLogro(texto){
+    const logro = document.getElementById("logro");
+    logro.textContent = texto;
+    logro.classList.add("mostrar");
+    setTimeout(() =>{
+        logro.classList.remove("mostrar");
+    }, 2000);
+
 }
 
 function preguntarPendientes() {
@@ -157,7 +169,7 @@ function copiar() {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    alert('Copiado 👍');
+    mostrarLogro("Copiado ");
 }
 
 document.addEventListener('DOMContentLoaded', () => {
