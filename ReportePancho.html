@@ -12,13 +12,11 @@
         text-align: center;
         background: #428866;
     }
-    
     input::placeholder {
     color: #3a3737;
     font-family: 'Courier New', Courier, monospace;
 }
-    
-input[type="checkbox"]{
+    input[type="checkbox"]{
     appearance: none;
     width: 35px;
     height: 22px;
@@ -53,7 +51,8 @@ input[type="checkbox"]:checked::before {
         display: flex;
         text-align: center;
         margin: 10px;
-        background: rgba(255, 255, 255,0.3);
+        background: rgba(255, 255, 255, 0.582);
+        
         line-height: 30px;
         border-radius: 10px;
         border: none;
@@ -68,12 +67,34 @@ input[type="checkbox"]:checked::before {
         text-align: center;
     }
 
-    .botones button{
-        font-family: 'Courier New', Courier, monospace;
-        display: inline-block;
+    .logro{
+        width: 200px;
+        position: fixed;
+        top: -100px;
+        left: 50%;
         text-align: center;
+        transform: translateX(-50%);
+        transition: top 0.3s ease, opacity 0.2s ease;
+        font-family: 'monospace';
+        background-color: #425066;
+        color: rgb(24, 22, 22);
+        box-shadow: #000000 1px 3px 5px -1px;
+        padding: 10px 20px;
+        border-radius: 15px;
+        opacity: 0;
+    }
+    
+    .logro.mostrar{
+        animation: bajar 0.5s ease;
+        top: 30px;
+        opacity: 1;
+    }
+
+    .botones button{
+        display: inline-block;
         background: rgb(127, 170, 110);
-        color: rgb(34, 33, 33);
+        text-align: center;
+        color: rgb(185, 180, 180);
         border: none;
         border-radius: 5px;
         padding: 10px 20px;
@@ -103,6 +124,9 @@ input[type="checkbox"]:checked::before {
     <input type="tel" placeholder="RABÓN" id="rabon">
     <input type="tel" placeholder="TORTÓN" id="torton">
     <input type="tel" placeholder="PLANA" id="plana">
+    <input type="tel" placeholder="ISUZU" id="isuzu">
+    <input type="tel" placeholder="NISSAN" id="nissan">
+    <div class="logro" id="logro"></div>
     </div>
 
     <div class="chec">
@@ -133,7 +157,16 @@ input[type="checkbox"]:checked::before {
             }
         });
         return unidadesF;
+    }
+    //ESTE APARTADO SIRVE PARA QUE ARROJE UN MENSAJE EN VEZ DE UN ALERT
+    function notificacion(texto){
+        const logro = document.getElementById("logro");
 
+        logro.textContent = texto;
+        logro.classList.add("mostrar");
+        setTimeout(() =>{
+            logro.classList.remove("mostrar");
+        },2500);
     }
 
 
@@ -141,6 +174,8 @@ input[type="checkbox"]:checked::before {
         const hormigas = document.getElementById('hormiga').value;
         const rabones = document.getElementById('rabon').value;
         const tortons = document.getElementById('torton').value;
+        const isuzu = document.getElementById('isuzu').value;
+        const nissan = document.getElementById('nissan').value;
         const planas = document.getElementById('plana').value;
         const limpi = document.getElementById('limpia');
         const suci = document.getElementById('sucia');
@@ -148,20 +183,23 @@ input[type="checkbox"]:checked::before {
 
         if(opcion === "limpi"){
             suci.checked = false;
-            texto.textContent = "Area Limpia"
+            texto.textContent = "Área Limpia"
         }
         else{
             limpi.checked = false;
-            texto.textContent = "Area Sucia";
+            texto.textContent = "Área Sucia";
         }
 
         const hormigaF = formatear(hormigas, 'V-0', 10);
         const rabonF = formatear(rabones, 'V-0', 10);
         const tortonF = formatear(tortons, 'V-0', 10);
+        const isuzuF = formatear(isuzu, 'V-0', 10);
+        const nissanF = formatear(nissan, 'V-0', 10);
         const planaF = formatear(planas, 'VP-0', 10);
-        
 
-        let resultado = opcion + '<br><br>'; 
+
+        let resultado = opcion + '<br><br>';
+
             if (hormigaF.length > 0){
                 resultado +=  '*HORMIGA:*<br>';
                 resultado += hormigaF.join('<br>') + '<br><br>';
@@ -171,16 +209,28 @@ input[type="checkbox"]:checked::before {
                 resultado += '*RABÓN:* <br>';
                 resultado += rabonF.join('<br>') + '<br><br>';
             }
-
-if (tortonF.length > 0){
-                resultado += '*TORTÓN:* <br>';
+            if (tortonF.length > 0){
+                resultado += '*TORTÓN*: <br>';
                 resultado += tortonF.join('<br>') + '<br><br>';
             }
-if (planaF.length > 0){
-                resultado += '*PLANA:* <br>';
+            if(isuzuF.length > 0){
+                resultado += '*ISUZU*: <br>';
+                resultado += isuzuF.join('<br>') + '<br><br>';
+            }
+            if(nissan.length > 0 ){
+                resultado += '*NISSAN:* <br>';
+                resultado += nissanF.join('<br>') + '<br><br>';
+            }
+            if(planaF.length > 0){
+                resultado += '*PLANAS*: <br>';
                 resultado += planaF.join('<br>') + '<br><br>';
             }
             
+            /*
+            resultado += hormigaF.join('<br>')+ `<br><br>*RABÓN:*<br>`;
+            resultado += rabonF.join('<br>')+ `<br><br>*TORTÓN:*<br>`;
+            resultado += tortonF.join('<br>')+ `<br><br>*PLANAS:*<br>`;
+            resultado += planaF.join('<br>');*/
         document.getElementById('resultado').innerHTML = resultado;
 
     }
@@ -194,18 +244,17 @@ if (planaF.length > 0){
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        alert('Texto copiado👍');
+        notificacion("Copiado");
     }
 
     document.addEventListener('DOMContentLoaded', (event) =>{
         document.addEventListener('keydown', (event)=> {
             if (event.key === 'Enter') {
                 event.preventDefault();
-                procesar();
+                procesar('*ÁREA LIMPIA*');
             }
         })
     })
-
 
 </script>
 </html>
