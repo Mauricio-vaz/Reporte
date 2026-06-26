@@ -76,7 +76,7 @@ input[type="checkbox"]:checked::before {
         transform: translateX(-50%);
         transition: top 0.3s ease, opacity 0.2s ease;
         font-family: 'monospace';
-        background-color: #425066;
+        background-color: #589966;
         color: rgb(24, 22, 22);
         box-shadow: #000000 1px 3px 5px -1px;
         padding: 10px 20px;
@@ -131,10 +131,9 @@ input[type="checkbox"]:checked::before {
 
     <div class="chec">
     <label for="checklimpia" id="limpia">Limpia</label>
-    <input type="checkbox" id="checklimpia" onclick="procesar('*ÁREA LIMPIA*')">
-
+    <input type="checkbox" id="limpi" onclick="cambiarEstado('limpi')">
     <label for="checkSucia" id="sucia">Sucia</label>
-    <input type="checkbox" id="checkSucia" onclick="procesar('*ÁREA SUCIA*')">
+    <input type="checkbox" id="suci" onclick="cambiarEstado('suci')">
     </div>
     
     <div class="botones">
@@ -177,18 +176,6 @@ input[type="checkbox"]:checked::before {
         const isuzu = document.getElementById('isuzu').value;
         const nissan = document.getElementById('nissan').value;
         const planas = document.getElementById('plana').value;
-        const limpi = document.getElementById('limpia');
-        const suci = document.getElementById('sucia');
-        const texto = document.getElementById('resultado');
-
-        if(opcion === "limpi"){
-            suci.checked = false;
-            texto.textContent = "Área Limpia"
-        }
-        else{
-            limpi.checked = false;
-            texto.textContent = "Área Sucia";
-        }
 
         const hormigaF = formatear(hormigas, 'V-0', 10);
         const rabonF = formatear(rabones, 'V-0', 10);
@@ -232,7 +219,23 @@ input[type="checkbox"]:checked::before {
             resultado += tortonF.join('<br>')+ `<br><br>*PLANAS:*<br>`;
             resultado += planaF.join('<br>');*/
         document.getElementById('resultado').innerHTML = resultado;
+    }
 
+    function cambiarEstado(opcion){
+        const limpi = document.getElementById('limpi');
+        const suci = document.getElementById('suci');
+        const texto = document.getElementById('resultado');
+
+        if(opcion === "limpi"){
+            limpi.checked = true;
+            suci.checked = false;
+            texto.textContent = "*Área Limpia*";
+        }
+        else{
+            suci.checked = true;
+            limpi.checked = false;
+            texto.textContent = "*Área Sucia*";
+        }
     }
 
 
