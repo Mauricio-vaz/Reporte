@@ -16,36 +16,6 @@
     color: #3a3737;
     font-family: 'Courier New', Courier, monospace;
 }
-    input[type="checkbox"]{
-    appearance: none;
-    width: 35px;
-    height: 22px;
-    background: #ccc;
-    border-radius: 20px;
-    position: relative;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-input[type="checkbox"]::before {
-    content: "";
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    background: white;
-    border-radius: 50%;
-    top: 2px;
-    left: 2px;
-    transition: 0.3s;
-}
-
-input[type="checkbox"]:checked {
-    background: #3bb355;
-}
-
-input[type="checkbox"]:checked::before {
-    transform: translateX(13px);
-}
 
     body input{
         display: flex;
@@ -130,10 +100,8 @@ input[type="checkbox"]:checked::before {
     </div>
 
     <div class="chec">
-    <label for="checklimpia" id="limpia">Limpia</label>
-    <input type="checkbox" id="limpi" onclick="cambiarEstado('limpi')">
-    <label for="checkSucia" id="sucia">Sucia</label>
-    <input type="checkbox" id="suci" onclick="cambiarEstado('suci')">
+    <input type="radio" name="estado" value="Limpia" onclick="procesar('ÁREA LIMPIA:')">-LIMPIA
+    <input type="radio" name="estado" value="Sucia" onclick="procesar('ÁREA SUCIA:')"> -SUCIA
     </div>
     
     <div class="botones">
@@ -176,6 +144,10 @@ input[type="checkbox"]:checked::before {
         const isuzu = document.getElementById('isuzu').value;
         const nissan = document.getElementById('nissan').value;
         const planas = document.getElementById('plana').value;
+        
+        const limpi = document.getElementById('limpi');
+        const suci = document.getElementById('suci');
+        const texto = document.getElementById('resultado');
 
         const hormigaF = formatear(hormigas, 'V-0', 10);
         const rabonF = formatear(rabones, 'V-0', 10);
@@ -183,15 +155,20 @@ input[type="checkbox"]:checked::before {
         const isuzuF = formatear(isuzu, 'V-0', 10);
         const nissanF = formatear(nissan, 'V-0', 10);
         const planaF = formatear(planas, 'VP-0', 10);
-
+        const totalUnidades = 
+        hormigaF.length +
+        rabonF.length +
+        tortonF.length +
+        isuzuF.length +
+        nissanF.length +
+        planaF.length;
 
         let resultado = opcion + '<br><br>';
 
             if (hormigaF.length > 0){
                 resultado +=  '*HORMIGA:*<br>';
                 resultado += hormigaF.join('<br>') + '<br><br>';
-            }
-
+            } 
             if (rabonF.length > 0){
                 resultado += '*RABÓN:* <br>';
                 resultado += rabonF.join('<br>') + '<br><br>';
@@ -204,7 +181,7 @@ input[type="checkbox"]:checked::before {
                 resultado += '*ISUZU*: <br>';
                 resultado += isuzuF.join('<br>') + '<br><br>';
             }
-            if(nissan.length > 0 ){
+            if(nissanF.length > 0 ){
                 resultado += '*NISSAN:* <br>';
                 resultado += nissanF.join('<br>') + '<br><br>';
             }
@@ -212,30 +189,10 @@ input[type="checkbox"]:checked::before {
                 resultado += '*PLANAS*: <br>';
                 resultado += planaF.join('<br>') + '<br><br>';
             }
-            
-            /*
-            resultado += hormigaF.join('<br>')+ `<br><br>*RABÓN:*<br>`;
-            resultado += rabonF.join('<br>')+ `<br><br>*TORTÓN:*<br>`;
-            resultado += tortonF.join('<br>')+ `<br><br>*PLANAS:*<br>`;
-            resultado += planaF.join('<br>');*/
+
+            resultado += `Total de unidades en ` + opcion + ` ${totalUnidades}`;
+
         document.getElementById('resultado').innerHTML = resultado;
-    }
-
-    function cambiarEstado(opcion){
-        const limpi = document.getElementById('limpi');
-        const suci = document.getElementById('suci');
-        const texto = document.getElementById('resultado');
-
-        if(opcion === "limpi"){
-            limpi.checked = true;
-            suci.checked = false;
-            texto.textContent = "*Área Limpia*";
-        }
-        else{
-            suci.checked = true;
-            limpi.checked = false;
-            texto.textContent = "*Área Sucia*";
-        }
     }
 
 
