@@ -4,10 +4,17 @@ body {
     background: #428866;
     text-align: center;
 }
+h1{
+    font-family: 'Courier New', Courier, monospace;
+    color: #000000;
+    font-size: 20px;
+}
 input {
     margin: 10px auto;
     display: block;
-    background: rgba(255, 255, 255,0.3);
+    width: 160px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.233);
     border-radius: 15px;
     border: none;
     padding: 8px 20px;
@@ -15,6 +22,7 @@ input {
 button {
     margin: 15px;
     background-color: cadetblue;
+    font-family: 'Tahoma';
     border: transparent;
     font-size: medium;
     padding: 10px 20px;
@@ -39,8 +47,8 @@ button{
     font-family: 'Courier New', Courier, monospace;
     margin: 15px;
     background: rgb(127, 170, 110);
-    color: rgb(34, 33, 33);
     line-height: 10px;
+    color: rgb(0, 0, 0);
     border-radius: 10px;
     border: none;
     width: auto;
