@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-        <h1>Información de unidades en reposo</h1>
+        <h1>UNIDADES EN ÁREA DE REPOSO</h1>
     
     <label for="hormiga">HORMIGAS</label>
     <input type="tel" id="hormiga" required>
@@ -84,8 +84,8 @@
             const tallerlFormateada = formatearUnidades(tallerl, 'V-', 100);
             const tallersFormateada = formatearUnidades(tallers, 'V-', 100);
             const carrosReposo = [...hormigaFormateada, ...tortonFormateada, ...rabonFormateada, ...nissanFormateada, ...planaFormateada];
-            //const formaNota = formatearUnidades(nota);
-        
+            //const formaNota = rmatearUnidades(nota);
+
 
             const numeroReposo = carrosReposo.length;
             const fechaActual = obtenerFechaActual();
@@ -107,13 +107,13 @@
             resultado += `*PLANAS*<br><br>`;
             resultado += planaFormateada.join(', ')+ '<br><br>';
             resultado += '*'+planaFormateada.length + ' Planas limpias*<br><br>';
+            resultado += `✅¡${numeroReposo} UNIDADES LIMPIAS EN ÁREA DE REPOSO!✅<br><br>`;
             resultado += `*UNIDADES LIMPIAS EN TALLER*<br><br>`;
             resultado += tallerlFormateada.join(', ') +'<br><br>';
             resultado += '*'+tallerlFormateada.length + ' Unidades Limpias En Taller*<br><br>';
             resultado += `*UNIDADES SUCIAS EN TALLER*<br><br>`;
             resultado += tallersFormateada.join(', ') +'<br><br>';
             resultado += '*'+tallersFormateada.length + ' Unidades Sucias En Taller*<br><br>';
-            resultado += `✅¡${numeroReposo} UNIDADES LIMPIAS EN ÁREA DE REPOSO!✅<br><br>`;
             resultado += `*NOTA:*<br>`+ notas;
             document.getElementById('resulta').innerHTML = resultado;
         }
