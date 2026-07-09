@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="noche.css">
-    <title>Reporte Procesado</title>
-    
+    <title>Reporte Procesado</title>    
 </head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <body>
     <div class="wraper">
-    <h4 class="titulo">REPORTE DE UNIDADES PARA PROCESADO</h4>
+    <h3 class="titulo">REPORTE DE UNIDADES PARA PROCESADO</h3>
     </div>
     <div class="unidad-folio">
         <label for="unidadpro">Número de unidad:</label>
@@ -22,7 +22,7 @@
         <input type="text" id="notapro" style="display: none;" required>
         <div id="logro" class="logro"></div>
     </div>
-
+    
     <button onclick="agregarViaje()">Agregar unidad</button>
     <button onclick="copiar()">Copiar</button>
 
@@ -169,7 +169,12 @@ function copiar() {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-    mostrarLogro("Copiado cuñado...");
+    mostrarLogro("COPIADO");
+    confetti({
+        particleCount: 300,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
