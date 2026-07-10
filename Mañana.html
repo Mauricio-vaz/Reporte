@@ -6,31 +6,32 @@
     <link rel="stylesheet" href="mañana.css">
     <title>Document</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <body>
         <h1>UNIDADES EN ÁREA DE REPOSO</h1>
     
-    <label for="hormiga">HORMIGAS</label>
+    <label for="hormiga">HORMIGA:</label>
     <input type="tel" id="hormiga" required>
 
-    <label for="torton">TORTON</label>
+    <label for="torton">TORTON:</label>
     <input type="tel" id="torton">
 
-    <label for="rabon">RABON</label>
+    <label for="rabon">RABON:</label>
     <input type="tel" id="rabon">
 
-    <label for="nissan">NISSAN</label>
+    <label for="nissan">NISSAN:</label>
     <input type="tel" id="nissan">
 
-    <label for="planaTracto">PLANAS</label>
+    <label for="planaTracto">PLANAS:</label>
     <input type="tel" id="planaTracto">
 
-    <label for="tallerl">TALLER LIMPIA</label>
+    <label for="tallerl">TALLER LIMPIA:</label>
     <input type="tel" id="tallerl">
 
-    <label for="tallers">TALLER SUCIA</label>
+    <label for="tallers">TALLER SUCIA:</label>
     <input type="tel" id="tallers">
 
-    <label for="notas">NOTA</label>
+    <label for="notas">NOTA:</label>
     <input type="text" id="notas">
 
     <div class="boton-mañana">
@@ -39,6 +40,7 @@
     </div>
     <h2>Resultado</h2>
     <p id="resulta"></p>
+    <p id="logro"></p>
     </div>
 
     <script>
@@ -64,6 +66,16 @@
             const mes = String(hoy.getMonth() + 1).padStart(2, '0'); // Enero es 0
             const año = hoy.getFullYear().toString().slice(-4);
             return `${dia}/${mes}/${año}`;
+        }
+
+        //MOSTRAR LOGRO
+        function mostrarLogro(texto){
+            const logro = document.getElementById("logro");
+            logro.textContent = texto;
+            logro.classList.add("mostrar");
+            setTimeout(() => {
+                logro.classList.remove("mostrar");
+            }, 2500);
         }
 
         function procesarDatos() {
@@ -136,7 +148,12 @@
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('Copiado en el portapapeles');
+            mostrarLogro("Copiado...");
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
         }
 
         document.addEventListener('DOMContentLoaded', (event) => {
