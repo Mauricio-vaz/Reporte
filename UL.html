@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="ul.css">
-    <title>Unidades Limpias</title>
+    <title>ULPP</title>
 </head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <body>
     <div class="contenedor">
 
@@ -24,8 +25,9 @@
         <button id="buscarbtn" onclick="procesardatos()">Procesar</button>
         <button onclick="copiarResultado()">Copiar</button>
 
-        <h2>Resultado:</h2>
+        <h2  style="display: none;">Resultado:</h2>
         <p id="resultado"></p>
+        <p id="logro"></p>
     </div>
     <script>
         function formatear(unidades, prefijo, threshold =100){
@@ -49,6 +51,16 @@
             return `${dia}/${mes}/${año}`;
         }
 
+        //FUNCION PARA EL TOAST
+        function mostrarLogro(texto){
+            const logro = document.getElementById('logro');
+            logro.textContent = texto;
+            logro.classList.add('mostrar');
+            setTimeout(() =>{
+                logro.classList.remove('mostrar');
+            }, 3000);
+        }
+
         function procesardatos() {
             const planasL = document.getElementById('planaL').value;
             const planaS = document.getElementById('planaS').value;
@@ -61,6 +73,10 @@
             const unidadSucia = formatear(unidadS, 'V-0', 10);
             const fechaUnidad = fecha();
 
+            /*if(planaSucia.length == 0 || unidadSucia.length == 0){
+                style = "display: none;";
+            }NO SE DONDE PONER PARA QUE BORRE SOLO "UNIDADES Y PLANAS = 0"*/
+
             let resultado = `${fechaUnidad}<br>*PROGRAMACIÓN PARA VIAJE DE PROCESADO*<br><br>`;
             resultado += `*PLANAS*<br>`;
             resultado += planaLimpia.join(' Limpia✅<br>') + ` Limpia✅<br>`;
@@ -69,7 +85,9 @@
             resultado += `*UNIDADES*<br>`;
             resultado += unidadLimpia.join(' Limpia✅<br>') + ` Limpia✅<br>`;
             resultado += unidadSucia.join(' Sucia❌<br>') + ` Sucia❌<br><br>`;
-            resultado += `Unidades sucias: ${unidadSucia.length}`;
+            resultado += `Unidades Sucias: ${unidadSucia.length}`;
+
+            
 
             document.getElementById('resultado').innerHTML= resultado;
         }
@@ -82,7 +100,12 @@
             textarea.select();
             document.execCommand('copy');
             document.body.removeChild(textarea);
-            alert('Copiando en la papelera');
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            mostrarLogro('Copiado')
         }
 
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -96,6 +119,4 @@
 
     </script>
 </body>
-
 </html>
-
