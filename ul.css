@@ -7,21 +7,52 @@ body{
 }
 
 input{
-    margin: 10px auto;
     display: block;
-    background: rgba(253, 253, 253, 0.3);
+    margin: 10px auto;
     border-radius: 15px;
     border: none;
-    padding: 8px 20px;
-    
+    font-size: 16px;
+    width: 20%;
+    text-align: center;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.4);
+    transition: all 300ms ease-in-out;
+    background: rgba(253, 253, 253, 0.3);
+    padding: 8px;    
+}
+input:focus{
+    background-color: rgba(255, 255, 255, 0.233);
+    transform: scale(1.05);
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.6);
 }
 button{
     font-family: 'Courier New', Courier, monospace;
     margin: 15px;
     background: rgb(127, 170, 110);
-    color: rgb(34, 33, 33);
     border: transparent;
     font-size: medium;
     padding: 10px 20px;
+    box-shadow: 3px 3px 0px #000;
     border-radius: 8px;
+}
+#logro{
+    width: 200px;
+    position: fixed;
+    top: -100px;
+    left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    transition: top 0.4s ease, opacity 0.4s ease;
+    font-family: 'courier new', monospace;
+    background-color: #47a883;
+    color: rgb(24, 22, 22);
+    box-shadow: #000000 1px 3px 5px -1px;
+    padding: 10px 20px;
+    border-radius: 15px;
+    opacity: 0;
+}
+
+#logro.mostrar{
+    animation: bajar 0.5s ease;
+    top: 30px;
+    opacity: 1;
 }
